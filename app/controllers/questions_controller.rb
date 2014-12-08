@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(params.require(:question).permit(:text))
+    question = Question.new(params.require(:question).permit(:text, :user_id))
     params[:answers].each do |a|
       question.answers << Answer.new(a.permit(:text))
     end
