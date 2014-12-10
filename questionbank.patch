@@ -1,3 +1,5 @@
+# TODO: remove this file from repo
+
 From 84d5fada8f2c178fd4475aa6d64f93bc30c63b9a Mon Sep 17 00:00:00 2001
 From: Phil McGachey <phil_mcgachey@harvard.edu>
 Date: Sat, 1 Nov 2014 11:16:14 -0400
@@ -21,7 +23,7 @@ index 9b7438b..763962a 100644
 -    render json: Question.all
 +    render json: Question.all, :include => :answers
    end
- 
+
    def create
 -    json = params[:question]
 -    print params
@@ -33,7 +35,7 @@ index 9b7438b..763962a 100644
 -    render json: question
 +    render json: question.to_json(:include => :answers)
    end
- 
+
    def update
 diff --git a/app/models/question.rb b/app/models/question.rb
 index 5f409b9..94140f5 100644
@@ -63,18 +65,18 @@ index 2a39379..8049b25 100644
 @@ -11,11 +11,13 @@
  #
  # It's strongly recommended that you check this file into your version control system.
- 
+
 -ActiveRecord::Schema.define(version: 20141023181652) do
 +ActiveRecord::Schema.define(version: 20141101141658) do
- 
+
    create_table "answers", force: true do |t|
      t.datetime "created_at"
      t.datetime "updated_at"
 +    t.integer  "question_id"
 +    t.string   "text"
    end
- 
+
    create_table "questions", force: true do |t|
--- 
+--
 1.9.3 (Apple Git-50)
 

@@ -1,3 +1,5 @@
+# TODO: short description of project in this file; it will show up in github -- consider new name QuestionMarket
+
 == README
 
 This README would normally document whatever steps are necessary to get the

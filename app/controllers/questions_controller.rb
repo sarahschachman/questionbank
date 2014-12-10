@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
       question.answers << Answer.new(a.permit(:text))
     end
     question.save
+    # Does this need .to_json() if it is called as render json: ?
     render json: question.to_json(:include => :answers)
   end
 
@@ -18,6 +19,6 @@ class QuestionsController < ApplicationController
 
 
 
- 
+
 
 end
